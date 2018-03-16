@@ -26,9 +26,9 @@ public class PadViewController : UIViewController,AVAudioPlayerDelegate, CAAnima
     var buttonVector : [MusicButton] = []
     var audioPlayers = [AVAudioPlayer](repeating: AVAudioPlayer(), count: 16)
     var soundsNames  = [String](repeating: "", count: 16)
-    var colorsVector = [[UIColor]](repeating: [UIColor(colorLiteralRed: 81.0/255.0, green: 167.0/255.0, blue: 249.0/255.0, alpha: 1.0),
-                                               UIColor(colorLiteralRed: 3.0/255.0, green: 101.0/255.0, blue: 192.0/255.0, alpha: 1.0)],
-                                   count: 16)
+    var colorsVector = [[UIColor]](repeating: [UIColor(red: 81.0/255.0, green: 167.0/255.0, blue: 249.0/255.0, alpha: 1.0),
+                                              UIColor(red: 3.0/255.0, green: 101.0/255.0, blue: 101.0/255.0, alpha: 1.0)],
+                                  count: 16)
     var animations = [[AnimationStep]](repeating:[AnimationStep(action: .None, buttons: [0])], count: 16)
     var animationIndex = [Int](repeating: 0, count: 16)
     var shouldLoop = [Bool](repeating: false, count: 16)
@@ -85,19 +85,19 @@ public class PadViewController : UIViewController,AVAudioPlayerDelegate, CAAnima
         self.shouldLoop[buttonPosition] = shouldLoop
         switch lightColor {
         case "Blue":
-            colorsVector[buttonPosition] = [UIColor(colorLiteralRed: 81.0/255.0, green: 167.0/255.0, blue: 249.0/255.0, alpha: 1.0),
-                                            UIColor(colorLiteralRed: 3.0/255.0, green: 101.0/255.0, blue: 192.0/255.0, alpha: 1.0)]
+            colorsVector[buttonPosition] = [UIColor(red: 81.0/255.0, green: 167.0/255.0, blue: 249.0/255.0, alpha: 1.0),
+                                            UIColor(red: 3.0/255.0, green: 101.0/255.0, blue: 192.0/255.0, alpha: 1.0)]
             break;
         case "Yellow":
-            colorsVector[buttonPosition] = [UIColor(colorLiteralRed: 249.0/255.0, green: 81.0/255.0, blue: 84.0/255.0, alpha: 1.0),
-                                            UIColor(colorLiteralRed: 192/255.0, green: 165.0/255.0, blue: 3.0/255.0, alpha: 1.0)]
+            colorsVector[buttonPosition] = [UIColor(red: 249.0/255.0, green: 81.0/255.0, blue: 84.0/255.0, alpha: 1.0),
+                                            UIColor(red: 192/255.0, green: 165.0/255.0, blue: 3.0/255.0, alpha: 1.0)]
             break;
         case "Orange":
-            colorsVector[buttonPosition] = [UIColor(colorLiteralRed: 255.0/255.0, green: 246.0/255.0, blue: 128.0/255.0, alpha: 1.0),
-                                            UIColor(colorLiteralRed: 192/255.0, green: 3.0/255.0, blue: 6.0/255.0, alpha: 1.0)]
+            colorsVector[buttonPosition] = [UIColor(red: 255.0/255.0, green: 246.0/255.0, blue: 128.0/255.0, alpha: 1.0),
+                                            UIColor(red: 192/255.0, green: 3.0/255.0, blue: 6.0/255.0, alpha: 1.0)]
         case "Pink":
-            colorsVector[buttonPosition] = [UIColor(colorLiteralRed: 249.0/255.0, green: 81.0/255.0, blue: 188.0/255.0, alpha: 1.0),
-                                            UIColor(colorLiteralRed: 123.0/255.0, green: 40.0/255.0, blue: 92.0/255.0, alpha: 1.0)]
+            colorsVector[buttonPosition] = [UIColor(red: 249.0/255.0, green: 81.0/255.0, blue: 188.0/255.0, alpha: 1.0),
+                                            UIColor(red: 123.0/255.0, green: 40.0/255.0, blue: 92.0/255.0, alpha: 1.0)]
             break;
         default:
             break;
@@ -158,7 +158,7 @@ public class PadViewController : UIViewController,AVAudioPlayerDelegate, CAAnima
         
     }
     
-    func buttonTapped(sender: MusicButton!) {
+    @objc func buttonTapped(sender: MusicButton!) {
         
         
         if (sender.position >= 0 && sender.position < 16 && soundsNames[sender.position] != "") {
